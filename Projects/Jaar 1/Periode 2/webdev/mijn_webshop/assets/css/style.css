@@ -1,113 +1,251 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+
 * {
     box-sizing: border-box;
 }
 
+html {
+    background-color: #000000;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    color: #333333;
     margin: 0;
+    padding: 0 12px 24px;
+    color: #ffffff;
+    background-color: #000000;
+    background-image: url("../../../../../../../Assets/Images/Deltarune/Locations/Locations/Castle Town/Exterior/Ch1/bg_darktown_0.png");
+    background-position: top center;
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+    background-attachment: scroll;
+    font-family: "VT323", "Courier New", monospace;
+    font-size: 22px;
 }
 
 #container {
-    width: 90%;
+    width: min(100%, 640px);
     margin: 0 auto;
+    background-color: #000000;
 }
 
-#header {
-    background-color: #111111;
-    color: #ffffff;
-    padding: 20px;
-    text-align: center;
+.shop-screen {
+    background-color: #000000;
 }
 
-#header h1 {
-    margin: 10px;
+.shop-scene {
+    position: relative;
+    height: auto;
+    aspect-ratio: 8 / 3;
+    overflow: hidden;
+    background-color: #100900;
 }
 
-#menu {
+.shop-background {
+    display: block;
+    width: 100%;
+    height: 100%;
+    image-rendering: pixelated;
+}
+
+.seam {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 42%;
+    height: 92%;
+    object-fit: contain;
+    object-position: center bottom;
+    transform: translateX(-50%);
+    image-rendering: pixelated;
+}
+
+.shop-scene h1 {
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    margin: 0;
+    font-size: 22px;
+    text-shadow: 2px 2px #000000;
+}
+
+.shop-panel {
+    display: grid;
+    grid-template-columns: 2fr 1.15fr;
+    min-height: 220px;
+    border: 4px solid #ffffff;
+}
+
+.dialogue {
+    padding: 18px 16px;
+    border-right: 4px solid #ffffff;
+    font-size: 24px;
+    line-height: 1.5;
+}
+
+.dialogue p {
+    margin: 0 0 8px;
+}
+
+.shop-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 12px 16px;
+    font-size: 24px;
+}
+
+.shop-menu ul {
+    margin: 0;
     padding: 0;
     list-style: none;
 }
 
-#menu li {
-    display: inline;
-    margin: 0 10px;
+.shop-menu li {
+    margin-bottom: 5px;
 }
 
-#menu a {
+.shop-menu a,
+.pixel-link {
     color: #ffffff;
+    text-decoration: none;
+}
+
+.shop-menu a:hover,
+.pixel-link:hover {
+    color: #ffff00;
+}
+
+.selected::before {
+    content: "♥";
+    margin-right: 8px;
+    color: #ff3030;
+}
+
+.money {
+    margin: 8px 0 0;
+    text-align: right;
 }
 
 #content {
-    background-color: #ffffff;
-    padding: 20px;
+    padding: 20px 8px;
+}
+
+#producten {
+    margin: 0 0 16px;
+    font-size: 28px;
+}
+
+#producten img {
+    width: 24px;
+    height: 24px;
+    image-rendering: pixelated;
+    vertical-align: middle;
 }
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
 }
 
 .product {
-    border: 1px solid #cccccc;
-    padding: 10px;
-}
-
-.product img {
-    width: 100%;
-    height: 220px;
-    object-fit: contain;
-}
-
-.prijs {
-    color: #d9480f;
-    font-weight: bold;
-    font-size: 20px;
+    min-width: 0;
+    padding: 12px;
+    border: 3px solid #ffffff;
+    background-color: #000000;
 }
 
 .detail-product {
-    display: flex;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 16px;
+    padding: 12px;
+    border: 3px solid #ffffff;
+    background-color: #000000;
 }
 
-.detail-product img {
-    width: 50%;
-    max-width: 400px;
+.detail-product > img {
+    display: block;
+    width: 100%;
+    background-color: #ffffff;
     object-fit: contain;
 }
 
-button {
-    padding: 10px 20px;
-    background-color: #111111;
+.detail-product h3 {
+    margin-top: 0;
+}
+
+.detail-product button {
+    padding: 6px 10px;
+    border: 2px solid #ffffff;
     color: #ffffff;
-    border: 0;
+    background-color: #000000;
+    font: inherit;
     cursor: pointer;
 }
 
+.detail-product button:hover {
+    color: #ffff00;
+}
+
+.product-image {
+    display: block;
+    width: 100%;
+    height: 170px;
+    background-color: #ffffff;
+    object-fit: contain;
+}
+
+.product h3 {
+    margin: 10px 0 6px;
+    font-size: 24px;
+}
+
+.product p {
+    margin: 0 0 10px;
+}
+
+.prijs {
+    color: #ffff00;
+}
+
+.pixel-link {
+    display: inline-block;
+    padding: 5px 8px;
+    border: 2px solid #ffffff;
+}
+
 #footer {
-    background-color: #333333;
-    color: #ffffff;
-    padding: 20px;
+    padding: 12px;
+    border-top: 3px solid #ffffff;
     text-align: center;
 }
 
-@media (max-width: 700px) {
-    .product-grid {
-        grid-template-columns: repeat(2, 1fr);
+#footer p {
+    margin: 0;
+}
+
+@media (max-width: 480px) {
+    .shop-panel {
+        grid-template-columns: 1.3fr 1fr;
+        min-height: 190px;
+    }
+
+    .dialogue,
+    .shop-menu {
+        padding: 10px 8px;
+        font-size: 20px;
+    }
+
+    .product-image {
+        height: 130px;
     }
 
     .detail-product {
-        display: block;
-    }
-
-    .detail-product img {
-        width: 100%;
-    }
-}
-
-@media (max-width: 450px) {
-    .product-grid {
         grid-template-columns: 1fr;
+    }
+
+    .shop-scene h1 {
+        font-size: 18px;
     }
 }

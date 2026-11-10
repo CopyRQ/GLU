@@ -1,2 +1,58 @@
 OneDrive - glu.nl/
 Assets/Images/Deltarune
+!Assets/Images/Deltarune/
+Assets/Images/Deltarune/*
+!Assets/Images/Deltarune/Shops/
+Assets/Images/Deltarune/Shops/*
+!Assets/Images/Deltarune/Shops/Shops/
+Assets/Images/Deltarune/Shops/Shops/*
+!Assets/Images/Deltarune/Shops/Shops/Ch1/
+Assets/Images/Deltarune/Shops/Shops/Ch1/*
+!Assets/Images/Deltarune/Shops/Shops/Ch1/Seam/
+Assets/Images/Deltarune/Shops/Shops/Ch1/Seam/*
+!Assets/Images/Deltarune/Shops/Shops/Ch1/Seam/Ch1/
+Assets/Images/Deltarune/Shops/Shops/Ch1/Seam/Ch1/*
+!Assets/Images/Deltarune/Shops/Shops/Ch1/Seam/Ch1/spr_shopbg1_0.png
+!Assets/Images/Deltarune/Shops/Shops/Ch1/Seam/Ch1/spr_seam_laugh_0.png
+!Assets/Images/Deltarune/Locations/
+Assets/Images/Deltarune/Locations/*
+!Assets/Images/Deltarune/Locations/Locations/
+Assets/Images/Deltarune/Locations/Locations/*
+!Assets/Images/Deltarune/Locations/Locations/Castle Town/
+Assets/Images/Deltarune/Locations/Locations/Castle Town/*
+!Assets/Images/Deltarune/Locations/Locations/Castle Town/Exterior/
+Assets/Images/Deltarune/Locations/Locations/Castle Town/Exterior/*
+!Assets/Images/Deltarune/Locations/Locations/Castle Town/Exterior/Ch1/
+Assets/Images/Deltarune/Locations/Locations/Castle Town/Exterior/Ch1/*
+!Assets/Images/Deltarune/Locations/Locations/Castle Town/Exterior/Ch1/bg_darktown_0.png
+!Assets/Images/Deltarune/UI/
+Assets/Images/Deltarune/UI/*
+!Assets/Images/Deltarune/UI/UI/
+Assets/Images/Deltarune/UI/UI/*
+!Assets/Images/Deltarune/UI/UI/Battle/
+Assets/Images/Deltarune/UI/UI/Battle/*
+!Assets/Images/Deltarune/UI/UI/Battle/Buttons/
+Assets/Images/Deltarune/UI/UI/Battle/Buttons/*
+!Assets/Images/Deltarune/UI/UI/Battle/Buttons/Ch1/
+Assets/Images/Deltarune/UI/UI/Battle/Buttons/Ch1/*
+!Assets/Images/Deltarune/UI/UI/Battle/Battle Box/
+Assets/Images/Deltarune/UI/UI/Battle/Battle Box/*
+!Assets/Images/Deltarune/UI/UI/Battle/Battle Box/Ch2/
+Assets/Images/Deltarune/UI/UI/Battle/Battle Box/Ch2/*
+!Assets/Images/Deltarune/UI/UI/Battle/Icons/
+Assets/Images/Deltarune/UI/UI/Battle/Icons/*
+!Assets/Images/Deltarune/UI/UI/Battle/Icons/Ch1/
+Assets/Images/Deltarune/UI/UI/Battle/Icons/Ch1/*
+!Assets/Images/Deltarune/UI/UI/Battle/Icons/Ch1/spr_sparestar_0.png
+!Assets/Images/Deltarune/Characters/
+Assets/Images/Deltarune/Characters/*
+!Assets/Images/Deltarune/Characters/Characters/
+Assets/Images/Deltarune/Characters/Characters/*
+!Assets/Images/Deltarune/Characters/Characters/Playable Characters/
+Assets/Images/Deltarune/Characters/Characters/Playable Characters/*
+!Assets/Images/Deltarune/Characters/Characters/Playable Characters/Ralsei/
+Assets/Images/Deltarune/Characters/Characters/Playable Characters/Ralsei/*
+!Assets/Images/Deltarune/Characters/Characters/Playable Characters/Ralsei/Ch1/
+Assets/Images/Deltarune/Characters/Characters/Playable Characters/Ralsei/Ch1/*
+!Assets/Images/Deltarune/Characters/Characters/Playable Characters/Ralsei/Ch1/Overworld/
+Assets/Images/Deltarune/Characters/Characters/Playable Characters/Ralsei/Ch1/Overworld/*
