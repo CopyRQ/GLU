@@ -1,0 +1,14 @@
+.blok {
+    background-color: #d9480f;
+    color: #ffffff;
+    width: 100px;
+    height: 100px;
+}
+.rij {
+    display: flex;
+    gap: 20px;   /* 20px tussen elk blok */
+}
+.producten {
+    display: flex;
+    gap: 20px;
+}
