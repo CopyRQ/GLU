@@ -10,7 +10,8 @@ html {
 
 body {
     margin: 0;
-    padding: 0 12px 24px;
+    padding: 0 12px;
+    min-height: 100vh;
     color: #ffffff;
     background-color: #000000;
     background-image: url("../../../../../../../Assets/Images/Deltarune/Locations/Locations/Castle Town/Exterior/Ch1/bg_darktown_0.png");
@@ -18,12 +19,15 @@ body {
     background-size: 100% auto;
     background-repeat: repeat-y;
     background-attachment: scroll;
-    font-family: "VT323", "Courier New", monospace;
+    font-family: "VT323", monospace;
     font-size: 22px;
 }
 
 #container {
+    display: flex;
+    flex-direction: column;
     width: min(100%, 640px);
+    min-height: 100vh;
     margin: 0 auto;
     background-color: #000000;
 }
@@ -37,7 +41,7 @@ body {
     height: auto;
     aspect-ratio: 8 / 3;
     overflow: hidden;
-    background-color: #100900;
+    background-color: #000000;
 }
 
 .shop-background {
@@ -95,13 +99,18 @@ body {
 }
 
 .shop-menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    width: 100%;
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
 .shop-menu li {
-    margin-bottom: 5px;
+    margin: 0;
 }
 
 .shop-menu a,
@@ -110,15 +119,45 @@ body {
     text-decoration: none;
 }
 
+.shop-menu a,
+.buy-link {
+    position: relative;
+}
+
+.shop-menu a {
+    display: inline-block;
+    padding-left: 28px;
+}
+
+.pixel-link.buy-link {
+    padding-left: 30px;
+}
+
+.shop-menu a::before,
+.buy-link::before {
+    position: absolute;
+    top: 50%;
+    left: 4px;
+    width: 18px;
+    height: 18px;
+    background-image: url("../../../../../../../Assets/Images/Deltarune/UI/UI/Battle/Soul/Ch2/LTS Update/spr_heart_0.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: "";
+    image-rendering: pixelated;
+    transform: translateY(-50%);
+    visibility: hidden;
+}
+
+.shop-menu a.selected::before,
+.buy-link.selected::before {
+    visibility: visible;
+}
+
 .shop-menu a:hover,
 .pixel-link:hover {
     color: #ffff00;
-}
-
-.selected::before {
-    content: "♥";
-    margin-right: 8px;
-    color: #ff3030;
 }
 
 .money {
@@ -142,13 +181,15 @@ body {
     vertical-align: middle;
 }
 
+/* product cards wrap onto a new row */
 .product-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 12px;
 }
 
 .product {
+    flex: 1 1 calc(50% - 6px);
     min-width: 0;
     padding: 12px;
     border: 3px solid #ffffff;
@@ -156,8 +197,8 @@ body {
 }
 
 .detail-product {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    display: flex;
+    align-items: flex-start;
     gap: 16px;
     padding: 12px;
     border: 3px solid #ffffff;
@@ -166,9 +207,13 @@ body {
 
 .detail-product > img {
     display: block;
-    width: 100%;
+    width: calc(50% - 8px);
     background-color: #ffffff;
     object-fit: contain;
+}
+
+.detail-product > div {
+    flex: 1;
 }
 
 .detail-product h3 {
@@ -216,6 +261,7 @@ body {
 }
 
 #footer {
+    margin-top: auto;
     padding: 12px;
     border-top: 3px solid #ffffff;
     text-align: center;
@@ -242,7 +288,11 @@ body {
     }
 
     .detail-product {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+    }
+
+    .detail-product > img {
+        width: 100%;
     }
 
     .shop-scene h1 {
