@@ -5,39 +5,49 @@
 }
 
 html {
+    height: 100%;
     background-color: #000000;
+    overflow: hidden;
 }
 
 body {
     margin: 0;
     padding: 0 12px;
-    min-height: 100vh;
+    height: 100%;
     color: #ffffff;
     background-color: #000000;
-    background-image: url("../../../../../../../Assets/Images/Deltarune/Locations/Locations/Castle Town/Exterior/Ch1/bg_darktown_0.png");
+    background-image: url("../images/deltarune/bg_darktown_0.png");
     background-position: top center;
     background-size: 100% auto;
     background-repeat: repeat-y;
     background-attachment: scroll;
     font-family: "VT323", monospace;
     font-size: 22px;
+    overflow: hidden;
 }
 
 #container {
     display: flex;
     flex-direction: column;
-    width: min(100%, 640px);
-    min-height: 100vh;
+    width: min(100%, 1100px);
+    height: 100vh;
+    height: 100dvh;
     margin: 0 auto;
     background-color: #000000;
+    overflow: hidden;
 }
 
 .shop-screen {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 0;
     background-color: #000000;
 }
 
 .shop-scene {
     position: relative;
+    flex: 0 0 auto;
     height: auto;
     aspect-ratio: 8 / 3;
     overflow: hidden;
@@ -48,6 +58,8 @@ body {
     display: block;
     width: 100%;
     height: 100%;
+    object-fit: contain;
+    object-position: center;
     image-rendering: pixelated;
 }
 
@@ -68,79 +80,137 @@ body {
     top: 8px;
     left: 12px;
     margin: 0;
-    font-size: 22px;
+    font-size: 28px;
     text-shadow: 2px 2px #000000;
 }
 
 .shop-panel {
     display: grid;
-    grid-template-columns: 2fr 1.15fr;
-    min-height: 220px;
+    flex: 1;
+    grid-template-columns: minmax(0, 2fr) minmax(230px, 0.8fr);
+    grid-template-rows: minmax(0, 1fr);
+    min-height: 0;
     border: 4px solid #ffffff;
+    overflow: hidden;
 }
 
 .dialogue {
-    padding: 18px 16px;
+    display: flex;
+    flex-direction: column;
+    grid-column: 1;
+    grid-row: 1;
+    min-height: 0;
+    overflow: hidden;
+    padding: 20px;
     border-right: 4px solid #ffffff;
-    font-size: 24px;
-    line-height: 1.5;
+    font-size: 28px;
+    line-height: 1.35;
 }
 
-.dialogue p {
+.dialogue > p {
     margin: 0 0 8px;
 }
 
-.shop-menu {
+.shop-preview {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 12px 16px;
-    font-size: 24px;
+    align-items: center;
+    gap: 4px;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 2px solid #ffffff;
+    text-align: center;
 }
 
-.shop-menu ul {
+.shop-preview img {
+    display: block;
+    width: min(100%, 140px);
+    height: 120px;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+.shop-preview-large {
+    flex: 1;
+    min-height: 0;
+    justify-content: center;
+}
+
+.shop-preview-large img {
+    flex: 0 1 80%;
+    width: min(80%, 360px);
+    height: 80%;
+    min-height: 0;
+    margin: auto;
+}
+
+.product-menu-preview {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 8px;
+    padding-top: 8px;
+    text-align: left;
+}
+
+.product-menu-preview img {
+    width: 96px;
+    height: 96px;
+}
+
+.shop-preview p {
+    margin: 0;
+    color: #ffff00;
+}
+
+#content {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    padding: 12px 18px;
+}
+
+#content h2 {
+    margin: 0 0 8px;
+    font-size: 26px;
+}
+
+.game-menu {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 5px;
-    width: 100%;
+    gap: 6px;
     margin: 0;
     padding: 0;
     list-style: none;
+    font-size: 24px;
 }
 
-.shop-menu li {
+.game-menu li {
     margin: 0;
 }
 
-.shop-menu a,
+.game-menu a,
 .pixel-link {
     color: #ffffff;
     text-decoration: none;
 }
 
-.shop-menu a,
-.buy-link {
+.game-menu a {
     position: relative;
-}
-
-.shop-menu a {
     display: inline-block;
-    padding-left: 28px;
-}
-
-.pixel-link.buy-link {
     padding-left: 30px;
 }
 
-.shop-menu a::before,
-.buy-link::before {
+.game-menu a::before {
     position: absolute;
     top: 50%;
     left: 4px;
     width: 18px;
     height: 18px;
-    background-image: url("../../../../../../../Assets/Images/Deltarune/UI/UI/Battle/Soul/Ch2/LTS Update/spr_heart_0.png");
+    background-image: url("../images/deltarune/spr_heart_0.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -150,104 +220,118 @@ body {
     visibility: hidden;
 }
 
-.shop-menu a.selected::before,
-.buy-link.selected::before {
+.game-menu a.selected::before {
     visibility: visible;
 }
 
-.shop-menu a:hover,
+.game-menu a:hover,
+.game-menu a:focus-visible,
 .pixel-link:hover {
     color: #ffff00;
 }
 
-.money {
-    margin: 8px 0 0;
-    text-align: right;
+.game-menu a:focus-visible,
+.pixel-link:focus-visible {
+    outline: 2px solid #ffff00;
+    outline-offset: 3px;
 }
 
-#content {
-    padding: 20px 8px;
+.product-menu {
+    gap: 5px;
 }
 
-#producten {
-    margin: 0 0 16px;
-    font-size: 28px;
+.product-option {
+    max-width: 100%;
+    overflow-wrap: anywhere;
 }
 
-#producten img {
-    width: 24px;
-    height: 24px;
-    image-rendering: pixelated;
-    vertical-align: middle;
-}
-
-/* product cards wrap onto a new row */
-.product-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-.product {
-    flex: 1 1 calc(50% - 6px);
-    min-width: 0;
+.game-message {
     padding: 12px;
     border: 3px solid #ffffff;
     background-color: #000000;
 }
 
-.detail-product {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    padding: 12px;
-    border: 3px solid #ffffff;
-    background-color: #000000;
-}
-
-.detail-product > img {
-    display: block;
-    width: calc(50% - 8px);
-    background-color: #ffffff;
-    object-fit: contain;
-}
-
-.detail-product > div {
-    flex: 1;
-}
-
-.detail-product h3 {
+.game-message h2 {
     margin-top: 0;
 }
 
-.detail-product button {
-    padding: 6px 10px;
+.game-message p:last-child {
+    margin-bottom: 0;
+}
+
+.detail-product {
+    padding: 12px 0;
+    border-top: 2px solid #ffffff;
+}
+
+.detail-product h3 {
+    margin: 0 0 8px;
+    font-size: 28px;
+}
+
+.detail-product p {
+    margin: 8px 0;
+}
+
+.formulier {
+    max-width: 400px;
+}
+
+.order-product {
+    margin: 0 0 8px;
+}
+
+.order-back {
+    margin: 8px 0 0;
+}
+
+.veld {
+    margin-bottom: 6px;
+}
+
+.veld label {
+    display: block;
+    margin-bottom: 2px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.veld input,
+.veld select {
+    width: 100%;
+    min-height: 34px;
+    padding: 4px 8px;
     border: 2px solid #ffffff;
+    border-radius: 0;
+    color: #ffffff;
+    background-color: #000000;
+    font: inherit;
+}
+
+.veld input::placeholder {
+    color: #aaaaaa;
+    opacity: 1;
+}
+
+.veld input:focus-visible,
+.veld select:focus-visible {
+    outline: 2px solid #ffff00;
+    outline-offset: 2px;
+}
+
+.formulier input.knop {
+    padding: 4px 8px;
+    border: 2px solid #ffffff;
+    border-radius: 0;
     color: #ffffff;
     background-color: #000000;
     font: inherit;
     cursor: pointer;
 }
 
-.detail-product button:hover {
+.formulier input.knop:hover,
+.formulier input.knop:focus-visible {
     color: #ffff00;
-}
-
-.product-image {
-    display: block;
-    width: 100%;
-    height: 170px;
-    background-color: #ffffff;
-    object-fit: contain;
-}
-
-.product h3 {
-    margin: 10px 0 6px;
-    font-size: 24px;
-}
-
-.product p {
-    margin: 0 0 10px;
 }
 
 .prijs {
@@ -261,41 +345,231 @@ body {
 }
 
 #footer {
-    margin-top: auto;
-    padding: 12px;
-    border-top: 3px solid #ffffff;
+    display: flex;
+    flex: 0 0 32px;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    padding: 8px;
     text-align: center;
 }
 
 #footer p {
     margin: 0;
+    font-size: 16px;
 }
 
-@media (max-width: 480px) {
-    .shop-panel {
-        grid-template-columns: 1.3fr 1fr;
-        min-height: 190px;
+@media (max-width: 640px) {
+    body {
+        padding: 0;
     }
 
-    .dialogue,
-    .shop-menu {
-        padding: 10px 8px;
+    .shop-panel {
+        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+    }
+
+    .dialogue {
+        padding: 12px;
+        font-size: 23px;
+    }
+
+    #content {
+        padding: 10px 12px;
+    }
+
+    #content h2 {
+        font-size: 23px;
+    }
+
+    .game-menu {
+        gap: 6px;
+        font-size: 23px;
+    }
+
+    .shop-preview img {
+        height: 100px;
+    }
+
+    .product-menu-preview img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 640px) and (min-height: 800px) {
+    .shop-panel {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: minmax(0, 0.65fr) minmax(0, 1.35fr);
+    }
+
+    .shop-panel-large-preview {
+        grid-template-rows: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    }
+
+    .shop-panel-order #content {
+        padding: 6px 12px;
+    }
+
+    .shop-panel-order #content h2 {
+        margin-bottom: 4px;
+        font-size: 21px;
+    }
+
+    .shop-panel-order .order-product {
+        margin-bottom: 4px;
+        font-size: 18px;
+    }
+
+    .shop-panel-order .veld {
+        margin-bottom: 3px;
+    }
+
+    .shop-panel-order .veld label {
+        font-size: 18px;
+    }
+
+    .shop-panel-order .veld input,
+    .shop-panel-order .veld select {
+        min-height: 30px;
+        padding: 2px 6px;
+        font-size: 18px;
+    }
+
+    .shop-panel-order .formulier input.knop {
+        padding: 2px 6px;
+        font-size: 18px;
+    }
+
+    .shop-panel-order .order-back {
+        margin-top: 4px;
+    }
+
+    .shop-panel-order .order-back .pixel-link {
+        padding: 3px 6px;
+    }
+
+    .dialogue {
+        grid-column: 1;
+        grid-row: 1;
+        border-right: 0;
+        border-bottom: 4px solid #ffffff;
+    }
+
+    #content {
+        grid-column: 1;
+        grid-row: 2;
+    }
+}
+
+@media (max-width: 420px) {
+    .dialogue {
+        padding: 8px;
+        font-size: 18px;
+        line-height: 1.15;
+    }
+
+    .shop-preview {
+        gap: 2px;
+        margin-top: 8px;
+        padding-top: 6px;
+    }
+
+    .shop-preview img {
+        width: min(100%, 100px);
+        height: 80px;
+    }
+
+    .shop-preview-large img {
+        width: min(80%, 360px);
+        height: 80%;
+    }
+
+    .product-menu-preview {
+        gap: 6px;
+    }
+
+    .product-menu-preview img {
+        width: 64px;
+        height: 64px;
+    }
+}
+
+@media (max-height: 650px) {
+    .shop-scene {
+        flex-basis: clamp(120px, 24vh, 190px);
+        height: clamp(120px, 24vh, 190px);
+        aspect-ratio: auto;
+    }
+
+    #content {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    .shop-preview img {
+        height: clamp(80px, 16vh, 100px);
+    }
+
+    .shop-preview-large img {
+        height: 80%;
+    }
+}
+
+@media (max-height: 540px) {
+    .shop-scene {
+        flex-basis: clamp(90px, 18vh, 130px);
+        height: clamp(90px, 18vh, 130px);
+    }
+
+    #content {
+        padding: 6px 12px;
+    }
+
+    #content h2 {
+        margin-bottom: 4px;
         font-size: 20px;
     }
 
-    .product-image {
-        height: 130px;
-    }
-
-    .detail-product {
-        flex-direction: column;
-    }
-
-    .detail-product > img {
-        width: 100%;
-    }
-
-    .shop-scene h1 {
+    .order-product {
+        margin-bottom: 4px;
         font-size: 18px;
+    }
+
+    .veld {
+        margin-bottom: 2px;
+    }
+
+    .veld label {
+        font-size: 18px;
+    }
+
+    .veld input,
+    .veld select {
+        min-height: 28px;
+        padding: 2px 6px;
+        font-size: 18px;
+    }
+
+    .formulier input.knop {
+        padding: 2px 6px;
+        font-size: 18px;
+    }
+
+    .order-back {
+        margin-top: 4px;
+    }
+
+    .order-back .pixel-link {
+        padding: 3px 6px;
+    }
+
+    .product-menu-preview {
+        margin-top: 4px;
+        padding-top: 4px;
+    }
+
+    .product-menu-preview img {
+        width: 56px;
+        height: 56px;
     }
 }
