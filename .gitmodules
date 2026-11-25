@@ -5,3 +5,7 @@
 [submodule "Projects/Extra/Unity"]
 	path = Projects/Extra/Unity
 	url = https://github.com/CopyRQ/Unity.git
+
+[submodule "Projects/Extra/Essentials"]
+	path = Projects/Extra/Essentials
+	url = https://github.com/CopyRQ/Essentials.git
